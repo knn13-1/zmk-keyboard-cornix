@@ -1,23 +1,86 @@
-# Cornix common defaults for ZMK split
-# 放在共用處，但只在「中央端（Central）」時才開啟對應功能，
-# 以免編左半（Peripheral）時連結出錯。
+# Electronut Labs Papyr board configuration
 
-if ZMK_SPLIT
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
 
-menu "Cornix split defaults"
+if BOARD_CORNIX
 
-# 只有當前這個 build 被編成 Central 時才套用
-if ZMK_SPLIT_ROLE_CENTRAL
+config BOARD
+    default "cornix"
 
-# 中央端才需要從外側讀取電池電量的代理功能
-config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+endif # BOARD_CORNIX
+
+## Main device (left side)
+if BOARD_CORNIX_LEFT || BOARD_CORNIX_DONGLE
+
+config ZMK_KEYBOARD_NAME
+	default "Cornix"
+
+if USB
+
+config USB_NRFX
     default y
+
+config USB_DEVICE_STACK
+    default y
+
+endif # USB
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
 
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+	default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+	default y
+
+endif # BOARD_CORNIX_LEFT
+
+## Peripheral device (right side)
+if BOARD_CORNIX_RIGHT || BOARD_CORNIX_PH_LEFT
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default n
+
+# Add keyboard debouncing
+config ZMK_KSCAN_DEBOUNCE_PRESS_MS
+    default 5
+config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
+    default 5
+
+endif # BOARD_CORNIX_RIGHT
+
+# Common options for both sides
+if BOARD_CORNIX_LEFT  || BOARD_CORNIX_DONGLE || BOARD_CORNIX_PH_LEFT || BOARD_CORNIX_RIGHT
+
+
+config BT_CTLR
+    default BT
+
+config BOARD_CORNIX_CHARGER
     default y
 
-endif  # ZMK_SPLIT_ROLE_CENTRAL
+config ZMK_SPLIT
+	default y
 
-endmenu
+config ZMK_BLE
+	default y
 
-endif  # ZMK_SPLIT
+## disable rgb by default
+config WS2812_STRIP
+	default n
+config ZMK_RGB_UNDERGLOW
+	default n
+config ZMK_RGB_UNDERGLOW_EXT_POWER
+	default n
+
+endif # BOARD_CORNIX_LEFT || BOARD_CORNIX_RIGHT
+
+
+# vim: set ft=kconfig:
