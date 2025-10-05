@@ -4,12 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 #include "zmk-helpers/helper.h"
 #include "includes/cornix54.h"
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
 
 // tap windows for ctl alt and gui
 
@@ -180,6 +176,15 @@
         };
     };
 
+    macros {
+        p0983: p0983 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N0 &kp N9 &kp N8 &kp N3>;
+            label = "P0983";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -194,12 +199,15 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                      &kp Y      &kp U                &kp I            &kp O         &kp P             &kp BSLH
-&kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                      &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K     &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &none  &kp N      &kp M                &kp COMMA        &kp DOT       &kp FSLH          &kp BACKSPACE
-&none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                &kp ENTER  &mo 3                &lt 2 BACKSPACE  &none         &none             &none
+&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                          &kp LEFT_BRACKET   &kp LC(Z)  &kp E      &kp O     &kp B         &kp G
+&kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                          &kp RIGHT_BRACKET  &kp LC(Y)  &kp LC(W)  &kp H     &kp J         &kp LC(T)
+&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &kp LC(S)  &mo 1              &kp C      &kp DEL    &kp U     &kp LC(U)     &kp RSHFT
+&none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                    &kp M              &kp K      &kp LALT   &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp LC(RIGHT_BRACKET) LC(LEFT_BRACKET)>;
         };
 
         win_layer {
@@ -213,11 +221,12 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans               &trans         &trans        &trans            &trans
-&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
-&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans               &trans         &trans        &trans            &trans
-&none     &none          &none         &trans         &trans               &trans                  &trans  &trans               &trans         &none         &none             &none
+&trans    &trans         &trans        &trans         &trans               &trans                  &trans        &trans        &trans        &kp LC(B)  &trans     &trans
+&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans        &trans        &trans        &trans     &trans     &trans
+&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans        &trans        &trans        &kp LA(G)  &kp LC(C)  &kp LC(V)
+&none     &none          &none         &trans         &trans               &trans                  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none      &none      &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -238,6 +247,7 @@
 &none  &none     &kp RBKT  &kp RPAR  &kp PIPE  &kp BSLH   &trans  &trans  &kp FSLH   &kp QUESTION  &kp GRAVE  &kp TILDE  &kp SQT   &none
 &none  &none     &none     &none     &trans    &trans                     &kp TILDE  &trans        &kp GRAVE  &none      &none     &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -257,6 +267,7 @@
 &trans  &kp N6  &kp N7  &kp N8   &kp N9  &kp N0         &trans  &trans  &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
 &none   &none   &none   &kp TAB  &trans  &kp BACKSPACE                  &trans    &trans     &kp N3     &none     &none    &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
