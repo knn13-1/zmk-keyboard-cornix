@@ -199,7 +199,7 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                          &kp LEFT_BRACKET   &kp LC(Z)  &kp E      &kp p     &kp B         &kp G
+&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                          &kp LEFT_BRACKET   &kp LC(Z)  &kp E      &kp O     &kp B         &kp G
 &kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                          &kp RIGHT_BRACKET  &kp LC(Y)  &kp LC(W)  &kp H     &kp J         &kp LC(T)
 &mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &kp LC(S)  &mo 1              &kp C      &kp DEL    &kp U     &kp LC(U)     &kp RSHFT
 &none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                    &kp M              &kp K      &kp LALT   &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN
