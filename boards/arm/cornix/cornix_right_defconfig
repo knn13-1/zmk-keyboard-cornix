@@ -1,6 +1,8 @@
 # e73 config
 CONFIG_SOC_SERIES_NRF52X=y
 CONFIG_SOC_NRF52840_QIAA=y
+
+# Cornix right board
 CONFIG_BOARD_CORNIX=y
 CONFIG_BOARD_CORNIX_RIGHT=y
 
@@ -20,23 +22,21 @@ CONFIG_CLOCK_CONTROL_NRF=y
 CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
 # e73 config end
 
-# ZMK 基本
+# ZMK
 CONFIG_ZMK_KEYBOARD_NAME="Cornix"
 CONFIG_ZMK_BLE=y
-CONFIG_ZMK_USB=y        # （可選）右半當主控時，通常讓它有 USB 會比較方便
+CONFIG_ZMK_USB=y            # 主半保留 USB 較方便
 
-# 分體設定：右半 = Central（主單元）
+# Split：右半是 Central（主單元）
 CONFIG_ZMK_SPLIT=y
 CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
 
-# 藍牙發射功率（可選，沿用你左邊的）
+# 連線/電源相關（可選，沿用你原本設定）
 CONFIG_BT_CTLR_TX_PWR_PLUS_8=y
-
-# 電池狀態代理（central 端才需要）
 CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y
 CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING=y
 
-# 其它（依你原本需求）
+# 其他原本就有的
 CONFIG_INPUT=y
 CONFIG_SPI=n
 CONFIG_ZMK_EXT_POWER=n
