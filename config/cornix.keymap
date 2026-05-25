@@ -176,6 +176,50 @@
         };
     };
 
+    macros {
+        p0983: p0983 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N0 &kp N9 &kp N8 &kp N3>;
+            label = "P0983";
+        };
+
+        X20160114: X20160114 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(X) &kp N2 &kp N0 &kp N1 &kp N6 &kp N0 &kp N1 &kp N1 &kp N4>;
+            label = "X20160114";
+        };
+
+        p4W66DM: p4W66DM {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp N4 &kp LS(W) &kp N6 &kp N6 &kp LS(D) &kp LS(M)>;
+            label = "P4W66DM";
+        };
+
+        mail01: mail01 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp C &kp C &kp H &kp A &kp N &kp G &kp N1 &kp N4 &kp AT &kp S &kp T &kp U &kp D &kp E &kp N &kp T &kp DOT &kp O &kp T &kp I &kp S &kp DOT &kp E &kp D &kp U>;
+            label = "MAIL01";
+        };
+
+        mail02: mail02 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp N &kp E &kp K &kp O &kp N0 &kp N2 &kp N0 &kp N1 &kp N1 &kp N3 &kp DOT &kp S &kp A &kp R &kp A &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            label = "MAIL02";
+        };
+
+        mail03: mail03 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp J &kp I &kp M &kp DOT &kp C &kp H &kp A &kp N &kp G &kp N9 &kp N1 &kp N0 &kp N1 &kp N1 &kp N3 &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            label = "MAIL03";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -190,10 +234,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                      &kp RIGHT_BRACKET  &kp U                &kp E            &kp P         &kp P             &kp BSLH
-&kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                      &kp H              &hm_shift_r RSHFT J  &kp RC(W)        &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &none  &kp N              &kp M                &kp DELETE       &kp DOT       &kp FSLH          &kp BACKSPACE
-&none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                &kp ENTER          &mo 3                &lt 2 BACKSPACE  &none         &none             &none
+&kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                          &kp LEFT_BRACKET   &kp LC(Z)  &kp E         &kp P     &kp B         &kp G
+&kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                          &kp RIGHT_BRACKET  &kp LC(Y)  &kp RC(W)     &kp H     &kp J         &kp LC(T)
+&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &kp LC(S)  &mo 1              &kp C      &kp DELETE    &kp U     &kp LC(U)     &kp LSHIFT
+&none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                    &kp M              &kp K      &kp LEFT_ALT  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -210,10 +254,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans               &trans         &trans        &trans            &trans
-&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
-&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans               &trans         &trans        &trans            &trans
-&none     &none          &none         &trans         &trans               &trans                  &trans  &trans               &trans         &none         &none             &none
+&trans    &trans         &trans        &trans         &trans               &trans                  &trans        &trans        &trans        &kp LC(B)     &trans        &trans
+&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &mail03       &p0983        &X20160114    &p4W66DM      &mail01       &mail02
+&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans        &trans        &kp TAB       &kp LA(G)     &kp LC(C)     &kp LC(V)
+&none     &none          &none         &trans         &trans               &trans                  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
