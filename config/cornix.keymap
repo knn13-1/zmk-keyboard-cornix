@@ -240,7 +240,9 @@
 &none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                    &kp M              &kp K      &kp LEFT_ALT  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp LC(RIGHT_BRACKET) LC(LEFT_BRACKET)>;
         };
 
         win_layer {
