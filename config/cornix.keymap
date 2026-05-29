@@ -237,7 +237,7 @@
 &kp TAB  &kp Q          &kp W         &kp E         &kp R                &kp T                          &kp LEFT_BRACKET   &kp LC(Z)  &kp E         &kp P     &kp B         &kp G
 &kp ESC  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                          &kp RIGHT_BRACKET  &kp LC(Y)  &kp RC(W)     &kp H     &kp J         &kp LC(T)
 &mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &kp LC(S)  &mo 1              &kp C      &kp DELETE    &kp U     &kp LC(U)     &kp LSHIFT
-&none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                    &kp M              &kp K      &kp LEFT_ALT  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN
+&to 3    &to 0          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                    &kp M              &kp K      &kp LEFT_ALT  &mkp MB2  &msc SCRL_UP  &msc SCRL_DOWN
             >;
 
             sensor-bindings =
@@ -297,10 +297,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3   &kp F4  &kp F5                         &kp F6    &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
-&trans  &kp N5  &kp N4  &kp N3   &kp N2  &kp N1                         &kp BSPC  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
-&trans  &kp N6  &kp N7  &kp N8   &kp N9  &kp N0         &trans  &trans  &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
-&none   &none   &none   &kp TAB  &trans  &kp BACKSPACE                  &trans    &trans     &kp N3     &none     &none    &none
+&trans  &kp Q  &kp W  &kp E    &kp R   &kp T                          &kp Y   &kp U   &kp I      &kp O       &kp P    &kp BACKSPACE
+&trans  &kp A  &kp S  &kp D    &kp F   &kp G                          &kp H   &kp J   &kp K      &kp L       &kp DQT  &kp ENTER
+&trans  &kp Z  &kp X  &kp C    &kp V   &kp B          &trans  &trans  &kp N   &kp M   &kp COMMA  &kp PERIOD  &trans   &trans
+&to 0   &none  &none  &kp TAB  &trans  &kp BACKSPACE                  &trans  &trans  &kp N3     &none       &none    &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
